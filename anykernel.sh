@@ -48,7 +48,7 @@ $ksu_supported || abort "  -> Non-GKI device, abort."
 # 检测 Root 方式 (Magisk 检测)
 # =============
 if [ -d /data/adb/magisk ] || [ -f /sbin/.magisk ]; then
-    ui_print "============="
+    ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
     ui_print " 检测到 Magisk 或残留文件"
     ui_print " 在此情况下刷写内核可能会导致设备变砖"
     ui_print " 是否要继续安装？"
@@ -60,7 +60,7 @@ if [ -d /data/adb/magisk ] || [ -f /sbin/.magisk ]; then
     ui_print " 音量下键：继续安装 (风险自负)"
     ui_print " Volume UP: Exit script (recommended)"
     ui_print " Volume DOWN: Continue installation (at your own risk)"
-    ui_print "============="
+    ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
 
     key_click=""
     while [ "$key_click" = "" ]; do
@@ -87,7 +87,42 @@ if [ -d /data/adb/magisk ] || [ -f /sbin/.magisk ]; then
 fi
 
 ui_print "开始安装内核..."
+ui_print "Built by Github@Aibeto"
 ui_print "Powered by GitHub@Numbersf (Aq1298 & 咿云冷雨)"
+ui_print "
+                            O
+                           OOO
+                          OOOOO                             
+                         OOO OOO                            
+                        OOO   OOO                           
+                       OOO     OOO                          
+                      OOO       OOO                         
+                     OOO         OOO                        
+                    OOO           OOO                       
+     OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO        
+      OOO         OOO               OOO         OOO         
+       OOO       OOO                 OOO       OOO          
+        OOO     OOO                   OOO     OOO           
+         OOO   OOO                     OOO   OOO            
+          OOO OOO                       OOO OOO             
+           OOOOO                         OOOOO              
+            OOO                           OOO               
+           OOOOO                         OOOOO              
+          OOO OOO                       OOO OOO             
+         OOO   OOO                     OOO   OOO            
+        OOO     OOO                   OOO     OOO           
+       OOO       OOO                 OOO       OOO          
+      OOO         OOO               OOO         OOO       
+    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO        
+                     OOO         OOO                        
+                      OOO       OOO                         
+                       OOO     OOO                          
+                        OOO   OOO                           
+                         OOO OOO                            
+                          OOOOO                             
+                           OOO                              
+                            O                               
+                            "
 
 split_boot
 if [ -f "split_img/ramdisk.cpio" ]; then
@@ -97,6 +132,7 @@ else
     flash_boot
 fi
 
+# ui_print "默认跳过 SUSFS 模块安装"
 # =============
 # SUSFS 模块安装
 # =============
@@ -113,15 +149,15 @@ fi
 
 if [ -n "$MODULE_PATH" ]; then
     KSUD_PATH="/data/adb/ksud"
-    ui_print "============="
+    ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
     ui_print " 是否安装 SUSFS 模块？"
     ui_print " Install susfs4ksu Module?"
     ui_print "-----------------"
-    ui_print " 音量上键：跳过安装"
-    ui_print " 音量下键：安装模块"
+    ui_print " 音量上键：跳过安装【用不到就不装，装了的不用再装】"
+    ui_print " 音量下键：安装模块【需要一点时间，并不是卡死了】"
     ui_print " Volume UP: Skip installation"
     ui_print " Volume DOWN: Install module"
-    ui_print "============="
+    ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
 
     key_click=""
     while [ "$key_click" = "" ]; do
