@@ -87,42 +87,42 @@ if [ -d /data/adb/magisk ] || [ -f /sbin/.magisk ]; then
 fi
 
 ui_print "开始安装内核..."
-ui_print "Built by Github@Aibeto"
+ui_print "Modified & Built by Github@Aibeto (Bilibili@迢辰Aibeto)"
 ui_print "Powered by GitHub@Numbersf (Aq1298 & 咿云冷雨)"
-ui_print "
-                            O
-                           OOO
-                          OOOOO                             
-                         OOO OOO                            
-                        OOO   OOO                           
-                       OOO     OOO                          
-                      OOO       OOO                         
-                     OOO         OOO                        
-                    OOO           OOO                       
-     OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO        
-      OOO         OOO               OOO         OOO         
-       OOO       OOO                 OOO       OOO          
-        OOO     OOO                   OOO     OOO           
-         OOO   OOO                     OOO   OOO            
-          OOO OOO                       OOO OOO             
-           OOOOO                         OOOOO              
-            OOO                           OOO               
-           OOOOO                         OOOOO              
-          OOO OOO                       OOO OOO             
-         OOO   OOO                     OOO   OOO            
-        OOO     OOO                   OOO     OOO           
-       OOO       OOO                 OOO       OOO          
-      OOO         OOO               OOO         OOO       
-    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO        
-                     OOO         OOO                        
-                      OOO       OOO                         
-                       OOO     OOO                          
-                        OOO   OOO                           
-                         OOO OOO                            
-                          OOOOO                             
-                           OOO                              
-                            O                               
-                            "
+# ui_print "
+#                             O
+#                            OOO
+#                           OOOOO                             
+#                          OOO OOO                            
+#                         OOO   OOO                           
+#                        OOO     OOO                          
+#                       OOO       OOO                         
+#                      OOO         OOO                        
+#                     OOO           OOO                       
+#      OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO        
+#       OOO         OOO               OOO         OOO         
+#        OOO       OOO                 OOO       OOO          
+#         OOO     OOO                   OOO     OOO           
+#          OOO   OOO                     OOO   OOO            
+#           OOO OOO                       OOO OOO             
+#            OOOOO                         OOOOO              
+#             OOO                           OOO               
+#            OOOOO                         OOOOO              
+#           OOO OOO                       OOO OOO             
+#          OOO   OOO                     OOO   OOO            
+#         OOO     OOO                   OOO     OOO           
+#        OOO       OOO                 OOO       OOO          
+#       OOO         OOO               OOO         OOO       
+#     OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO        
+#                      OOO         OOO                        
+#                       OOO       OOO                         
+#                        OOO     OOO                          
+#                         OOO   OOO                           
+#                          OOO OOO                            
+#                           OOOOO                             
+#                            OOO                              
+#                             O                               
+#                             "
 
 split_boot
 if [ -f "split_img/ramdisk.cpio" ]; then
@@ -133,58 +133,59 @@ else
 fi
 
 # ui_print "默认跳过 SUSFS 模块安装"
+ui_print "内核支持 SUSFS "
 # =============
 # SUSFS 模块安装
 # =============
-if [ -f "$AKHOME/ksu_module_susfs_1.5.2+_Release.zip" ]; then
-    MODULE_PATH="$AKHOME/ksu_module_susfs_1.5.2+_Release.zip"
-    ui_print "  -> Found SUSFS Module (Release)"
-elif [ -f "$AKHOME/ksu_module_susfs_1.5.2+_CI.zip" ]; then
-    MODULE_PATH="$AKHOME/ksu_module_susfs_1.5.2+_CI.zip"
-    ui_print "  -> Found SUSFS Module (CI)"
-else
-    MODULE_PATH=""
-    ui_print "  -> No SUSFS Module found.You may have selected NON mode,skipping installation."
-fi
+# if [ -f "$AKHOME/ksu_module_susfs_1.5.2+_Release.zip" ]; then
+#     MODULE_PATH="$AKHOME/ksu_module_susfs_1.5.2+_Release.zip"
+#     ui_print "  -> Found SUSFS Module (Release)"
+# elif [ -f "$AKHOME/ksu_module_susfs_1.5.2+_CI.zip" ]; then
+#     MODULE_PATH="$AKHOME/ksu_module_susfs_1.5.2+_CI.zip"
+#     ui_print "  -> Found SUSFS Module (CI)"
+# else
+#     MODULE_PATH=""
+#     ui_print "  -> No SUSFS Module found.You may have selected NON mode,skipping installation."
+# fi
 
-if [ -n "$MODULE_PATH" ]; then
-    KSUD_PATH="/data/adb/ksud"
-    ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
-    ui_print " 是否安装 SUSFS 模块？"
-    ui_print " Install susfs4ksu Module?"
-    ui_print "-----------------"
-    ui_print " 音量上键：跳过安装【用不到就不装，装了的不用再装】"
-    ui_print " 音量下键：安装模块【需要一点时间，并不是卡死了】"
-    ui_print " Volume UP: Skip installation"
-    ui_print " Volume DOWN: Install module"
-    ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
+# if [ -n "$MODULE_PATH" ]; then
+#     KSUD_PATH="/data/adb/ksud"
+#     ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
+#     ui_print " 是否安装 SUSFS 模块？"
+#     ui_print " Install susfs4ksu Module?"
+#     ui_print "-----------------"
+#     ui_print " 音量上键：跳过安装【用不到就不装，装了的不用再装】"
+#     ui_print " 音量下键：安装模块【需要一点时间，并不是卡死了】"
+#     ui_print " Volume UP: Skip installation"
+#     ui_print " Volume DOWN: Install module"
+#     ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
 
-    key_click=""
-    while [ "$key_click" = "" ]; do
-        key_click=$(getevent -qlc 1 | awk '{ print $3 }' | grep 'KEY_VOLUME')
-        sleep 0.2
-    done
+#     key_click=""
+#     while [ "$key_click" = "" ]; do
+#         key_click=$(getevent -qlc 1 | awk '{ print $3 }' | grep 'KEY_VOLUME')
+#         sleep 0.2
+#     done
 
-    case "$key_click" in
-        "KEY_VOLUMEDOWN")
-            if [ -f "$KSUD_PATH" ]; then
-                ui_print " 正在安装 SUSFS 模块..."
-                ui_print " Installing SUSFS Module..."
-                /data/adb/ksud module install "$MODULE_PATH"
-                ui_print " 安装完成!"
-                ui_print " Installation complete!"
-            else
-                ui_print " 未找到 KSUD，跳过安装。"
-                ui_print " KSUD not found. Skipping installation."
-            fi
-            ;;
-        "KEY_VOLUMEUP")
-            ui_print " 已跳过 SUSFS 模块安装。"
-            ui_print " Skipped SUSFS Module installation."
-            ;;
-        *)
-            ui_print " 未知按键输入，已跳过 SUSFS 模块安装。"
-            ui_print " Unknown key input. Skipped SUSFS Module installation."
-            ;;
-    esac
-fi
+#     case "$key_click" in
+#         "KEY_VOLUMEDOWN")
+#             if [ -f "$KSUD_PATH" ]; then
+#                 ui_print " 正在安装 SUSFS 模块..."
+#                 ui_print " Installing SUSFS Module..."
+#                 /data/adb/ksud module install "$MODULE_PATH"
+#                 ui_print " 安装完成!"
+#                 ui_print " Installation complete!"
+#             else
+#                 ui_print " 未找到 KSUD，跳过安装。"
+#                 ui_print " KSUD not found. Skipping installation."
+#             fi
+#             ;;
+#         "KEY_VOLUMEUP")
+#             ui_print " 已跳过 SUSFS 模块安装。"
+#             ui_print " Skipped SUSFS Module installation."
+#             ;;
+#         *)
+#             ui_print " 未知按键输入，已跳过 SUSFS 模块安装。"
+#             ui_print " Unknown key input. Skipped SUSFS Module installation."
+#             ;;
+#     esac
+# fi
