@@ -5,7 +5,7 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=OnePlus Kernel by Numbersf
+kernel.string=OnePlus Kernel by Aibeto (Powerd by Numbersf)
 do.devicecheck=0
 do.modules=0
 do.systemless=0
@@ -133,6 +133,7 @@ else
 fi
 
 # ui_print "默认跳过 SUSFS 模块安装"
+ui_print "✡✡✡✡✡✡✡✡✡✡✡✡✡"
 ui_print "内核支持 SUSFS "
 # =============
 # SUSFS 模块安装
